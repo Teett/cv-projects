@@ -6,12 +6,14 @@ import matplotlib.pyplot as plt
 plt.style.use("ggplot")
 #%%
 # Define a dictionary that maps each column to its data type
+
+# Data credits: https://archive-beta.ics.uci.edu/dataset/143/statlog+australian+credit+approval
 dtypes = {'A1': 'category', 'A2': 'float', 'A3': 'float', 'A4': 'category',
           'A5': 'category', 'A6': 'category', 'A7': 'float', 'A8': 'category',
           'A9': 'category', 'A10': 'float', 'A11': 'category', 'A12': 'category',
           'A13': 'float', 'A14': 'float', 'A15': 'int'}
 # Read the .dat file and specify the separator as a space
-data = pd.read_csv('data/australian.dat', sep=' ',
+data = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/statlog/australian/australian.dat', sep=' ',
                    names=list(dtypes.keys()), dtype=dtypes)
 
 data['A15'] = data['A15'].replace({0: 'Declined', 1: 'Approved'})
